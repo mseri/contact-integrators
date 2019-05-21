@@ -86,9 +86,9 @@ _A = [1.315186320683906, -1.17767998417887,
 a_six = _A[-1:0:-1] + [_A[0]] + _A[1:]
 
 
-def step6(system, dt, p, q, s, t):
+def step6(system, dt, p, q, s, t, a=a_six, stepper=step):
     for coeff in a_six:
-        p, q, s, t = step(system, coeff*dt, p, q, s, t)
+        p, q, s, t = stepper(system, coeff*dt, p, q, s, t)
     return p, q, s, t
 
 
