@@ -99,7 +99,7 @@ def integrate(stepper, system, tspan, p0, q0, s0):
 
     [tspan] is usually [np.linspace(t0, tfinal, num=steps)]
     """
-    dt = tspan[0] - tspan[1]
+    dt = tspan[1] - tspan[0]
     steps = len(tspan)
     init = [p0, q0]
 
