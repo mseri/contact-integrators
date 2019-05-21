@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pylab as plb
 
-def rk4(system, p, q, tspan):
+def rk4(system, init, tspan):
     """
     RungeKutta4 from matplotlib.pylab for the damped oscillator
     with damping factor a.
