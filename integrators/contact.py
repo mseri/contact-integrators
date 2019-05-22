@@ -100,9 +100,21 @@ e_six = _E[-1:0:-1] + _E[:]
 
 
 def step6(system, dt, p, q, s, t, a=a_six, stepper=step):
-    for coeff in a_six:
+    for coeff in a:
         p, q, s, t = stepper(system, coeff*dt, p, q, s, t)
     return p, q, s, t
+
+
+def step6e(system, dt, p, q, s, t): return step6(
+    system, dt, p, q, s, t, a=e_six)
+
+
+def step6b(system, dt, p, q, s, t): return step6(
+    system, dt, p, q, s, t, a=b_six)
+
+
+def step6c(system, dt, p, q, s, t): return step6(
+    system, dt, p, q, s, t, a=c_six)
 
 
 def integrate(stepper, system, tspan, p0, q0, s0):
