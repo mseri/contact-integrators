@@ -16,6 +16,7 @@ These systems are provided via a class providing the functions
 """
 
 import numpy as np
+import warnings
 
 
 def variational_step(system, dt, p, x, s, t):
@@ -117,7 +118,7 @@ def step6c(system, dt, p, q, s, t): return step6(
     system, dt, p, q, s, t, a=c_six)
 
 
-def integrate(stepper, system, tspan, p0, q0, s0):
+def integrate(stepper, system, tspan, p0, q0, s0, ttol=1e-13):
     """
     Integrate [system] with initial conditions [p0], [q0]
     using the hamiltonian integrator provided in step.
@@ -137,7 +138,9 @@ def integrate(stepper, system, tspan, p0, q0, s0):
         p, q = solpq[i]
         s = sols[i]
         t = tspan[i]
-        pnew, qnew, snew, _ = stepper(system, dt, p, q, s, t)
+        pnew, qnew, snew, tnew = stepper(system, dt, p, q, s, t)
+        if abs(tnew-t-dt) > ttol:
+            warnings.warn(f"tnew-t-dt, dt inconsistency: {tnew-t-dt}, {dt}")
         solpq[i+1] = [pnew, qnew]
         sols[i+1] = snew
 
