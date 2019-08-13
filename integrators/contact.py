@@ -199,7 +199,7 @@ def integrate(stepper, system, tspan, p0, q0, s0, ttol=1e-13):
     sols[0] = s0
 
     for i in range(steps-1):
-        p, q = solpq[i]
+        p, q = np.copy(solpq[i])
         s = sols[i]
         t = tspan[i]
         pnew, qnew, snew, tnew = stepper(system, dt, p, q, s, t)
