@@ -132,7 +132,7 @@ def discrete_lag4(system, x0, x1, z0, t, dt):
         k1 = dt*system.lag(x0, (-3*x0-x1+4*b)/dt, z0, t)
         k2 = dt*system.lag(b, (x1-x0)/dt, z0 + k1/2, t + dt/2)
         k3 = dt*system.lag(b, (x1-x0)/dt, z0 + k2/2, t + dt/2)
-        k4 = dt*system.lag(x1, (x0+3*x1-4*b)/dt, z0 + k3, t + dt)
+        #k4 = dt*system.lag(x1, (x0+3*x1-4*b)/dt, z0 + k3, t + dt)
         kb1 = 4*system.lagv(x0, (-3*x0-x1+4*b)/dt, z0, t)
         kb2 = dt*system.lagq(b, (x1-x0)/dt, z0 + k1/2, t + dt/2) + .5 * \
             dt*system.lagz(b, (x1-x0)/dt, z0 + k1/2, t + dt/2)*kb1
@@ -146,7 +146,7 @@ def discrete_lag4(system, x0, x1, z0, t, dt):
         k1 = dt*system.lag(x0, (-3*x0-x1+4*b)/dt, z0, t)
         k2 = dt*system.lag(b, (x1-x0)/dt, z0 + k1/2, t + dt/2)
         k3 = dt*system.lag(b, (x1-x0)/dt, z0 + k2/2, t + dt/2)
-        k4 = dt*system.lag(x1, (x0+3*x1-4*b)/dt, z0 + k3, t + dt)
+        #k4 = dt*system.lag(x1, (x0+3*x1-4*b)/dt, z0 + k3, t + dt)
         kx01 = dt*system.lagq(x0, (-3*x0-x1+4*b)/dt, z0, t) - \
             3*system.lagv(x0, (-3*x0-x1+4*b)/dt, z0, t)
         kx02 = -system.lagv(b, (x1-x0)/dt, z0 + k1/2, t + dt/2) + .5 * \
@@ -161,7 +161,7 @@ def discrete_lag4(system, x0, x1, z0, t, dt):
         k1 = dt*system.lag(x0, (-3*x0-x1+4*b)/dt, z0, t)
         k2 = dt*system.lag(b, (x1-x0)/dt, z0 + k1/2, t + dt/2)
         k3 = dt*system.lag(b, (x1-x0)/dt, z0 + k2/2, t + dt/2)
-        k4 = dt*system.lag(x1, (x0+3*x1-4*b)/dt, z0 + k3, t + dt)
+        #k4 = dt*system.lag(x1, (x0+3*x1-4*b)/dt, z0 + k3, t + dt)
         kx11 = -system.lagv(x0, (-3*x0-x1+4*b)/dt, z0, t)
         kx12 = system.lagv(b, (x1-x0)/dt, z0 + k1/2, t + dt/2) + .5 * \
             dt*system.lagz(b, (x1-x0)/dt, z0 + k1/2, t + dt/2)*kx11
@@ -175,7 +175,7 @@ def discrete_lag4(system, x0, x1, z0, t, dt):
         k1 = dt*system.lag(x0, (-3*x0-x1+4*b)/dt, z0, t)
         k2 = dt*system.lag(b, (x1-x0)/dt, z0 + k1/2, t + dt/2)
         k3 = dt*system.lag(b, (x1-x0)/dt, z0 + k2/2, t + dt/2)
-        k4 = dt*system.lag(x1, (x0+3*x1-4*b)/dt, z0 + k3, t + dt)
+        #k4 = dt*system.lag(x1, (x0+3*x1-4*b)/dt, z0 + k3, t + dt)
         kz01 = dt*system.lagz(x0, (-3*x0-x1+4*b)/dt, z0, t)
         kz02 = dt*system.lagz(b, (x1-x0)/dt, z0 + k1/2,
                               t + dt/2) * (1 + kz01/2)
